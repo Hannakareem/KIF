@@ -1,21 +1,42 @@
+import { CalendarDays, MapPin } from "lucide-react";
+
 export default function Hero() {
   return (
-    <section className="px-10 py-20">
-      <h1 className="text-7xl font-light">
-        SHAPING
-      </h1>
+    <section className="px-[36px] pt-[150px] pb-[20px]">
+      <div
+        className="text-white uppercase"
+        style={{ fontFamily: "Futura PT, Futura, sans-serif" }}
+      >
+        <h1 className="text-[110px] leading-[0.88] tracking-[-4px] font-normal">
+          SHAPING
+        </h1>
 
-      <h1 className="text-7xl font-light">
-        THE <span className="text-red-500">FUTURE</span>
-      </h1>
+        <h1 className="text-[110px] leading-[0.88] tracking-[-4px] font-normal">
+          THE <span className="text-[#FF3B30]">FUTURE</span>
+        </h1>
 
-      <h1 className="text-7xl font-light">
-        OF INNOVATION
-      </h1>
+        <h1 className="text-[110px] leading-[0.88] tracking-[-4px] font-normal">
+          OF INNOVATION
+        </h1>
+      </div>
 
-      <div className="flex gap-10 mt-8 text-gray-300">
-        <p>📅 25–26 September 2026</p>
-        <p>📍 Kerala Startup Mission, Kochi</p>
+      <div
+        className="flex items-center gap-16 mt-8 text-white"
+        style={{ fontFamily: "Inter, sans-serif" }}
+      >
+        <div className="flex items-center gap-3">
+          <CalendarDays size={24} strokeWidth={1.7} />
+          <span className="text-[18px]">
+            25–26 September 2026
+          </span>
+        </div>
+
+        <div className="flex items-center gap-3">
+          <MapPin size={24} strokeWidth={1.7} />
+          <span className="text-[18px]">
+            Kerala Startup Mission, Kochi
+          </span>
+        </div>
       </div>
     </section>
   );

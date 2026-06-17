@@ -22,5 +22,77 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans, Arial, Helvetica, sans-serif);
+}
+
+/* Futura PT local/webfont setup
+   Place your font files in /public/fonts/ (woff2 preferred):
+   - /public/fonts/FuturaPT-Book.woff2
+   - /public/fonts/FuturaPT-Light.woff2
+   - /public/fonts/FuturaPT-BookCyrillic.woff2 (optional)
+*/
+@font-face {
+  font-family: 'Futura PT';
+  src: url('/fonts/FuturaPT-Book.woff2') format('woff2'),
+       url('/fonts/FuturaPT-Book.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Futura PT';
+  src: url('/fonts/FuturaPT-Light.woff2') format('woff2'),
+       url('/fonts/FuturaPT-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --font-display: 'Futura PT', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  --font-sans: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto;
+}
+
+/* Use display font for large headings */
+h1, h2, .display {
+  font-family: var(--font-display);
+}
+
+/* News ticker styles */
+.ticker-track {
+  display: inline-flex;
+  gap: 3rem;
+  align-items: center;
+  will-change: transform;
+  animation: marquee 20s linear infinite;
+}
+
+.ticker-track:hover {
+  animation-play-state: paused;
+}
+
+/* ticker visual bar */
+:root {
+  --ticker-blue: #00aef0;
+}
+
+.ticker-bar {
+  background: transparent;
+  color: var(--ticker-blue);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+/* make marquee loop smoother on wide screens */
+@media (min-width: 768px) {
+  .ticker-track { gap: 4rem; animation-duration: 18s; }
+  .ticker-bar { font-size: 15px; }
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
