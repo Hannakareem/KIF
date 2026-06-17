@@ -3,7 +3,7 @@ import Hero from "../components/Hero";
 import About from "../components/About";
 import FivePillars from "../components/FivePillars";
 import Stats from "../components/Stats";
-import NewsTicker from "../components/NewsTicker";
+import NewsTicker from "../components/News";
 
 export default function Home() {
   return (
