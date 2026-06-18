@@ -6,7 +6,7 @@ export default function Navbar() {
       <div className="w-full px-8 md:px-12 py-5 flex items-center justify-between">
         <div className="flex items-center">
           <Image
-            src="/images/kif-logo.png"
+            src="/images/nav/kif-logo.png"
             alt="KIF Logo"
             width={200}
             height={64}

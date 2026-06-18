@@ -1,7 +1,7 @@
 "use client";
 
 import { CalendarDays, MapPin } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
 export default function Hero() {
@@ -16,12 +16,12 @@ export default function Hero() {
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setIndex((prev) => (prev + 1) % words.length);
-    }, 2500);
+  const interval = setInterval(() => {
+    setIndex((prev) => (prev + 1) % words.length);
+  }, 2500);
 
-    return () => clearInterval(interval);
-  }, []);
+  return () => clearInterval(interval);
+}, []);
 
   return (
     <section className="px-[36px] pt-[150px] pb-[20px]">
@@ -36,21 +36,22 @@ export default function Hero() {
         <h1 className="text-[110px] leading-[0.88] tracking-[-4px] font-normal">
           THE <span className="text-[#FF3B30]">FUTURE</span>
         </h1>
-
-        <div className="relative h-[110px] overflow-hidden">
-          <AnimatePresence mode="wait">
-            <motion.h1
-              key={words[index]}
-              initial={{ y: 80, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              exit={{ y: -80, opacity: 0 }}
-              transition={{ duration: 0.5 }}
-              className="absolute text-[110px] leading-[0.88] tracking-[-4px] font-normal"
-            >
-              OF {words[index]}
-            </motion.h1>
-          </AnimatePresence>
-        </div>
+<div className="relative h-[120px] overflow-hidden">
+  <motion.h1
+    key={words[index]}
+    animate={{
+      y: [40, 0],
+      opacity: [0, 1],
+    }}
+    transition={{
+      duration: 0.5,
+      ease: "easeOut",
+    }}
+    className="absolute left-0 top-0 text-[110px] leading-[0.88] tracking-[-4px] font-normal text-white"
+  >
+    OF {words[index]}
+  </motion.h1>
+</div>
       </div>
 
       <div
