@@ -1,6 +1,28 @@
+"use client";
+
 import { CalendarDays, MapPin } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { useEffect, useState } from "react";
 
 export default function Hero() {
+  const words = [
+    "INNOVATION",
+    "STARTUPS",
+    "TECHNOLOGY",
+    "ENTREPRENEURSHIP",
+    "IMPACT",
+  ];
+
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prev) => (prev + 1) % words.length);
+    }, 2500);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section className="px-[36px] pt-[150px] pb-[20px]">
       <div
@@ -15,9 +37,20 @@ export default function Hero() {
           THE <span className="text-[#FF3B30]">FUTURE</span>
         </h1>
 
-        <h1 className="text-[110px] leading-[0.88] tracking-[-4px] font-normal">
-          OF INNOVATION
-        </h1>
+        <div className="relative h-[110px] overflow-hidden">
+          <AnimatePresence mode="wait">
+            <motion.h1
+              key={words[index]}
+              initial={{ y: 80, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: -80, opacity: 0 }}
+              transition={{ duration: 0.5 }}
+              className="absolute text-[110px] leading-[0.88] tracking-[-4px] font-normal"
+            >
+              OF {words[index]}
+            </motion.h1>
+          </AnimatePresence>
+        </div>
       </div>
 
       <div

@@ -1,9 +1,9 @@
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
+import Stats from "../components/Stats";
+import News from "../components/News";
 import About from "../components/About";
 import FivePillars from "../components/FivePillars";
-import Stats from "../components/Stats";
-import NewsTicker from "../components/NewsTicker";
 
 export default function Home() {
   return (
@@ -11,7 +11,7 @@ export default function Home() {
       <Navbar />
       <Hero />
       <Stats />
-      <NewsTicker />
+      <News />
       <About />
       <FivePillars />
     </main>
