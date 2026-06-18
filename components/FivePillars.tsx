@@ -1,3 +1,7 @@
+"use client";
+
+import { ContainerScroll, CardSticky } from "@/components/blocks/cards-stack";
+
 const pillars = [
   { title: "AI", color: "bg-sky-600" },
   { title: "Deep Tech", color: "bg-cyan-500" },
@@ -8,27 +12,30 @@ const pillars = [
 
 export default function FivePillars() {
   return (
-    <section className="bg-black py-16 md:py-24">
-      <div className="max-w-7xl mx-auto px-4">
+    <section className="bg-black text-white">
+      <ContainerScroll className="min-h-[500vh] py-24">
 
-        <h2 className="text-center text-3xl md:text-5xl font-bold mb-12">
+        <h2 className="text-center text-3xl md:text-5xl font-bold mb-20">
           FIVE PILLARS OF KIF
         </h2>
 
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
-          {pillars.map((pillar) => (
-            <div
-              key={pillar.title}
-              className={`${pillar.color} h-64 md:h-96 rounded-lg flex items-end p-4`}
-            >
-              <h3 className="text-white font-semibold">
-                {pillar.title}
-              </h3>
-            </div>
-          ))}
+        <div className="relative flex justify-center">
+          <div className="relative w-[320px] md:w-[420px]">
+
+            {pillars.map((pillar, index) => (
+              <CardSticky
+                key={pillar.title}
+                index={index + 2}
+                className={`${pillar.color} h-72 md:h-80 p-6 flex items-end text-white font-semibold shadow-xl`}
+              >
+                <h3 className="text-lg">{pillar.title}</h3>
+              </CardSticky>
+            ))}
+
+          </div>
         </div>
 
-      </div>
+      </ContainerScroll>
     </section>
   );
 }
