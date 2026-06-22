@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "title": "SDG & Creators' Summit",
+    "desc": "Sessions on sustainable development and creative entrepreneurship."
+  },
+  {
+    "id": 2,
+    "title": "Product Showcase",
+    "desc": "Startups demo products to investors, partners and press."
+  },
+  {
+    "id": 3,
+    "title": "Fab & Maker Fest",
+    "desc": "Hands-on maker activities, workshops and prototyping."
+  },
+  {
+    "id": 4,
+    "title": "Robotics, AR/VR Expo",
+    "desc": "Immersive demos from robotics and spatial computing teams."
+  },
+  {
+    "id": 5,
+    "title": "Food & Music Festival",
+    "desc": "Celebrate culture with food, performances and pop-ups."
+  },
+  {
+    "id": 6,
+    "title": "Workshops & Masterclasses",
+    "desc": "Expert-led deep dives and practical training sessions."
+  }
+]

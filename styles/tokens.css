@@ -1,0 +1,45 @@
+:root {
+  /* Colors */
+  --color-bg: #0a0a0a;
+  --color-foreground: #ffffff;
+  --color-muted: #a1a1aa;
+  --color-accent: #00A3FF;
+  --color-accent-2: #FF3B30;
+
+  /* Spacing */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 16px;
+  --space-4: 24px;
+  --space-5: 40px;
+  --space-6: 64px;
+
+  /* Typography */
+  --type-base: 16px;
+  --type-scale-1: 20px;
+  --type-scale-2: 24px;
+  --type-scale-3: 32px;
+  --type-scale-4: 40px;
+  --type-scale-5: 56px;
+  --type-display: 110px;
+
+  /* Tracking / leading */
+  --tracking-tight: -4px;
+  --leading-tight: 0.88;
+
+  /* Radius */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+
+  /* Buttons */
+  --btn-radius: 9999px;
+  --btn-padding-y: 8px;
+  --btn-padding-x: 16px;
+
+  /* Cards */
+  --card-bg: #0f1720; /* zinc-900 */
+  --card-padding: 24px;
+}
+
+/* Utility tokens (imported by globals.css) */
+html { color-scheme: dark; }

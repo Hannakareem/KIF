@@ -1,0 +1,16 @@
+{
+  "friday": [
+    { "time": "09:30 AM", "title": "Registration & Networking" },
+    { "time": "10:00 AM", "title": "Welcome & Inaugural Remarks", "speakers": "Anoop Ambika" },
+    { "time": "10:30 AM", "title": "She Leads: Keynote & Panel" },
+    { "time": "12:30 PM", "title": "Workshops & Masterclasses" },
+    { "time": "03:00 PM", "title": "Product Showcase" }
+  ],
+  "saturday": [
+    { "time": "09:30 AM", "title": "Open Sessions & Demos" },
+    { "time": "11:00 AM", "title": "Founders' Summit" },
+    { "time": "01:00 PM", "title": "Lunch & Networking" },
+    { "time": "02:30 PM", "title": "Pitchathon Finals" },
+    { "time": "04:30 PM", "title": "Closing Remarks" }
+  ]
+}

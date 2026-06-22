@@ -1,0 +1,8 @@
+[
+  { "id": 1, "title": "Discover", "subtitle": "The next big ideas from over 200+ startups", "icon": "🔍" },
+  { "id": 2, "title": "Network", "subtitle": "Connect with investors, mentors and industry leaders", "icon": "🤝" },
+  { "id": 3, "title": "Experience", "subtitle": "Live demos, immersive tech and product showcases", "icon": "🎛️" },
+  { "id": 4, "title": "Compete", "subtitle": "Hackathons, pitchathons and maker challenges", "icon": "🏆" },
+  { "id": 5, "title": "Learn", "subtitle": "Workshops, masterclasses and expert sessions", "icon": "📚" },
+  { "id": 6, "title": "Celebrate", "subtitle": "Food, music and cultural showcases", "icon": "🎉" }
+]

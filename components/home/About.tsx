@@ -57,10 +57,8 @@ export default function About() {
         </div>
 
         {/* Footer Card */}
-        <div className="mt-12 bg-zinc-100 text-black rounded-2xl p-8 md:p-12 text-center">
-          <h3 className="text-2xl font-semibold">
-            Stay tuned for KIF 2025
-          </h3>
+        <div className="mt-12 card--light text-center">
+          <h3 className="text-2xl font-semibold">Stay tuned for KIF 2025</h3>
         </div>
 
       </div>

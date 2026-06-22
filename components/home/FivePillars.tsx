@@ -13,7 +13,7 @@ const pillars = [
 export default function FivePillars() {
   return (
     <section className="bg-black text-white">
-      <ContainerScroll className="min-h-[500vh] py-24">
+      <ContainerScroll className="min-h-[120vh] py-24">
 
         <h2 className="text-center text-3xl md:text-5xl font-bold mb-20">
           FIVE PILLARS OF KIF
