@@ -1,41 +1,87 @@
 "use client";
 
-import { ContainerScroll, CardSticky } from "@/components/blocks/cards-stack";
+import Image from "next/image";
+import { useEffect, useRef } from "react";
+import { animate, scroll, spring } from "motion";
 
 const pillars = [
-  { title: "AI", color: "bg-sky-600" },
-  { title: "Deep Tech", color: "bg-cyan-500" },
-  { title: "Sustainability", color: "bg-green-700" },
-  { title: "Creative Economy", color: "bg-red-600" },
-  { title: "Food Tech", color: "bg-yellow-500" },
+  {
+    title: "AI",
+    image: "/images/pillars/ai.jpg",
+    bg: "bg-sky-500",
+  },
+  {
+    title: "DEEP TECH",
+    image: "/images/pillars/deeptech.jpg",
+    bg: "bg-cyan-500",
+  },
+  {
+    title: "SUSTAINABILITY",
+    image: "/images/pillars/sustainability.jpg",
+    bg: "bg-green-600",
+  },
+  {
+    title: "CREATIVE",
+    image: "/images/pillars/creative.jpg",
+    bg: "bg-red-500",
+  },
+  {
+    title: "FOOD TECH",
+    image: "/images/pillars/foodtech.jpg",
+    bg: "bg-yellow-400",
+  },
 ];
 
 export default function FivePillars() {
+  const ulRef = useRef<HTMLUListElement>(null);
+
+  useEffect(() => {
+    const items = document.querySelectorAll(".pillar");
+
+    if (!ulRef.current) return;
+
+    const controls = animate(
+      ulRef.current,
+      {
+        transform: [
+          "none",
+          `translateX(-${(items.length - 1) * 100}vw)`,
+        ],
+      },
+      {
+        easing: spring(),
+      }
+    );
+
+    const section = document.querySelector("#pillars");
+
+    if (section) {
+      scroll(controls, { target: section });
+    }
+  }, []);
+
   return (
-    <section className="bg-black text-white">
-      <ContainerScroll className="min-h-[120vh] py-24">
+    <section id="pillars" className="h-[500vh] relative">
+      <ul ref={ulRef} className="flex sticky top-0">
+        {pillars.map((pillar) => (
+          <li
+            key={pillar.title}
+            className={`pillar h-screen w-screen ${pillar.bg} flex flex-col justify-center items-center overflow-hidden relative`}
+          >
+            <h2 className="text-[18vw] font-black text-black">
+              {pillar.title}
+            </h2>
 
-        <h2 className="text-center text-3xl md:text-5xl font-bold mb-20">
-          FIVE PILLARS OF KIF
-        </h2>
-
-        <div className="relative flex justify-center">
-          <div className="relative w-[320px] md:w-[420px]">
-
-            {pillars.map((pillar, index) => (
-              <CardSticky
-                key={pillar.title}
-                index={index + 2}
-                className={`${pillar.color} h-72 md:h-80 p-6 flex items-end text-white font-semibold shadow-xl`}
-              >
-                <h3 className="text-lg">{pillar.title}</h3>
-              </CardSticky>
-            ))}
-
-          </div>
-        </div>
-
-      </ContainerScroll>
+            <Image
+              src={pillar.image}
+              width={600}
+              height={600}
+              alt={pillar.title}
+              className="absolute bottom-0 w-[400px] md:w-[550px]"
+            />
+          </li>
+        ))}
+      </ul>
     </section>
   );
 }
