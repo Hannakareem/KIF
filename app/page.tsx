@@ -7,6 +7,7 @@ import Programs from "../components/programs/Programs";
 import Highlights from "../components/home/Highlights";
 import Schedule from "../components/schedule/Schedule";
 import Speakers from "../components/speakers/Speakers";
+import FestivalHighlights from "../components/home/FestivalHighlights";
 import Partners from "../components/partners/Partners";
 import FivePillars from "../components/home/FivePillars";
 import highlights from "../data/highlights.json";
@@ -23,6 +24,7 @@ export default function Home() {
       <FivePillars />
       <Programs />
       <Speakers />
+      <FestivalHighlights />
       <Schedule />
       <Partners />
     </main>
