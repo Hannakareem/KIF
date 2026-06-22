@@ -3,13 +3,13 @@
 import { CalendarDays, MapPin } from "lucide-react";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import Image from "next/image";
 
 export default function Hero() {
   const words = [
     "INNOVATION",
     "STARTUPS",
     "TECHNOLOGY",
-    "ENTREPRENEURSHIP",
     "IMPACT",
   ];
 
@@ -24,11 +24,20 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="section--hero text-white uppercase" style={{ fontFamily: "Futura PT, Futura, sans-serif" }}>
-      <div>
+    <section
+      className="section--hero text-white uppercase relative overflow-hidden"
+      style={{ fontFamily: "Futura PT, Futura, sans-serif" }}
+    >
+      {/* Left Content */}
+      <div className="relative z-10">
         <h1 className="display-xxl font-normal">SHAPING</h1>
 
-        <h1 className="display-xxl font-normal">THE <span style={{ color: "var(--color-accent-2)" }}>FUTURE</span></h1>
+        <h1 className="display-xxl font-normal">
+          THE{" "}
+          <span style={{ color: "var(--color-accent-2)" }}>
+            FUTURE
+          </span>
+        </h1>
 
         <div className="hero-clip">
           <motion.h1
@@ -40,18 +49,33 @@ export default function Hero() {
             OF {words[index]}
           </motion.h1>
         </div>
+
+        <div
+          className="flex items-center gap-16 mt-8 text-white"
+          style={{ fontFamily: "Inter, sans-serif" }}
+        >
+          <div className="flex items-center gap-3">
+            <CalendarDays size={24} strokeWidth={1.7} />
+            <span className="lead">25–26 September 2026</span>
+          </div>
+
+          <div className="flex items-center gap-3">
+            <MapPin size={24} strokeWidth={1.7} />
+            <span className="lead">Kerala Startup Mission, Kochi</span>
+          </div>
+        </div>
       </div>
 
-      <div className="flex items-center gap-16 mt-8 text-white" style={{ fontFamily: "Inter, sans-serif" }}>
-        <div className="flex items-center gap-3">
-          <CalendarDays size={24} strokeWidth={1.7} />
-          <span className="lead">25–26 September 2026</span>
-        </div>
-
-        <div className="flex items-center gap-3">
-          <MapPin size={24} strokeWidth={1.7} />
-          <span className="lead">Kerala Startup Mission, Kochi</span>
-        </div>
+      {/* Right Hero Image */}
+      <div className="hidden lg:block absolute bottom-0 right-0 w-[700px] h-[700px] pointer-events-none">
+        <Image
+          src="/images/hero/right.png"
+          alt="Innovation Illustration"
+          fill
+          priority
+          sizes="(max-width: 1024px) 0vw, 40vw"
+          className="object-contain object-bottom-right"
+        />
       </div>
     </section>
   );
