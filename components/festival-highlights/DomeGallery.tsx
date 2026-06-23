@@ -174,6 +174,7 @@ export default function DomeGallery({
   } | null>(null);
 
   const rotationRef = useRef({ x: 0, y: 0 });
+  const autoRotateRef = useRef(0);
   const startRotRef = useRef({ x: 0, y: 0 });
   const startPosRef = useRef<{ x: number; y: number } | null>(null);
   const draggingRef = useRef(false);
@@ -295,6 +296,49 @@ export default function DomeGallery({
   useEffect(() => {
     applyTransform(rotationRef.current.x, rotationRef.current.y);
   }, []);
+
+useEffect(() => {
+  let frame: number;
+
+  const animate = () => {
+    if (!draggingRef.current && !focusedElRef.current) {
+      autoRotateRef.current += 0.01;
+
+      applyTransform(
+        rotationRef.current.x,
+        rotationRef.current.y + autoRotateRef.current
+      );
+    }
+
+    frame = requestAnimationFrame(animate);
+  };
+
+  animate();
+
+  return () => cancelAnimationFrame(frame);
+}, []);
+
+useEffect(() => {
+  const root = rootRef.current;
+  if (!root) return;
+
+  const handleMove = (e: MouseEvent) => {
+    if (draggingRef.current) return;
+
+    const rect = root.getBoundingClientRect();
+
+    const x =
+      ((e.clientX - rect.left) / rect.width - 0.5) * 2;
+
+    autoRotateRef.current += x * 0.03;
+  };
+
+  root.addEventListener("mousemove", handleMove);
+
+  return () => {
+    root.removeEventListener("mousemove", handleMove);
+  };
+}, []);
 
   const stopInertia = useCallback(() => {
     if (inertiaRAF.current) {
