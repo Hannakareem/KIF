@@ -7,26 +7,36 @@ const pillars = [
   {
     title: "AI",
     movingText: "ARTIFICIAL INTELLIGENCE",
+    description:
+      "Exploring intelligent systems and emerging technologies.\nDriving innovation across industries and society.",
     bg: "bg-sky-600",
   },
   {
     title: "DEEP TECH",
     movingText: "DEEP TECH",
+    description:
+      "Breakthrough innovations rooted in science and engineering.\nTransforming research into real-world impact.",
     bg: "bg-cyan-500",
   },
   {
     title: "SUSTAINABILITY",
     movingText: "SUSTAINABLE FUTURES",
+    description:
+      "Advancing solutions for a resilient and sustainable future.\nBalancing growth, climate action, and wellbeing.",
     bg: "bg-green-700",
   },
   {
     title: "CREATIVE ECONOMY",
     movingText: "CREATIVE ECONOMY",
+    description:
+      "Empowering innovation through culture and creativity.\nUnlocking opportunities across creative industries.",
     bg: "bg-red-600",
   },
   {
     title: "FOOD TECH",
     movingText: "FOOD TECHNOLOGY",
+    description:
+      "Reimagining food systems through science and technology.\nEnhancing nutrition, production, and sustainability.",
     bg: "bg-yellow-500",
   },
 ];
@@ -101,14 +111,18 @@ export default function FivePillars() {
 
               {/* Content */}
               <div className="relative z-20 flex h-full flex-col items-center justify-center text-center px-6">
-                <p className="mb-4 uppercase tracking-[0.4em] text-white/70 text-sm md:text-base">
-                  Pillar
-                </p>
+  <p className="mb-4 uppercase tracking-[0.4em] text-white/70 text-sm md:text-base">
+    Pillar
+  </p>
 
-                <h3 className="text-5xl md:text-8xl font-bold text-white transition-transform duration-500 hover:scale-105">
-                  {pillar.title}
-                </h3>
-              </div>
+  <h3 className="text-5xl md:text-8xl font-bold text-white transition-transform duration-500 hover:scale-105">
+    {pillar.title}
+  </h3>
+
+  <p className="mt-8 max-w-2xl whitespace-pre-line text-base md:text-lg text-white/80 leading-relaxed">
+    {pillar.description}
+  </p>
+</div>
             </li>
           ))}
         </ul>

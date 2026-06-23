@@ -6,12 +6,7 @@
   --foreground: #171717;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+/* removed invalid @theme at-rule; font variables are provided via layout.tsx font imports */
 
 @media (prefers-color-scheme: dark) {
   :root {
@@ -122,22 +117,26 @@ h1, h2, .display {
 
 /* Hero utilities */
 .hero-clip { height: calc(var(--type-display) * 0.9); overflow: hidden; position: relative; }
-.scroll-reel-char {
-  display: inline-block;
-  opacity: 0;
-  transform: translateY(10px);
-  animation: charRise 0.45s forwards;
-}
+@keyframes scrollText {
+  from {
+    transform: translateX(0);
+  }
 
-@keyframes charRise {
   to {
-    opacity: 1;
-    transform: translateY(0);
+    transform: translateX(-50%);
   }
 }
 
-.scroll-reel-exit {
-  opacity: 0;
-  transform: translateY(-8px);
-  transition: all 0.2s ease;
+.scroll-text {
+  display: flex;
+  width: max-content;
+  white-space: nowrap;
+  font-size: clamp(2rem, 8vw, 6rem);
+  font-weight: 800;
+  color: #ef4444;
+  animation: scrollText 20s linear infinite;
+}
+
+.scroll-text span {
+  padding-right: 4rem;
 }

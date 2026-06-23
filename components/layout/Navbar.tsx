@@ -7,7 +7,7 @@ export default function Navbar() {
       <div className="nav-inner">
         <div className="flex items-center">
           <Link href="/">
-            <Image src="/images/nav/kif-logo.png" alt="KIF Logo" width={170} height={50} priority />
+            <Image src="/images/nav/kif-logo.png" alt="KIF Logo" width={200} height={64} priority />
           </Link>
         </div>
         <div className="hidden md:block" style={{ position: 'absolute', left: '70%', transform: 'translateX(-50%)' }}>
