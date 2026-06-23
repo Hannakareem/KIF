@@ -6,7 +6,7 @@ import About from "../components/home/About";
 import Programs from "../components/programs/Programs";
 import Schedule from "../components/schedule/Schedule";
 import Speakers from "../components/speakers/Speakers";
-import FestivalHighlights from "../components/home/FestivalHighlights";
+import FestivalHighlights from "../components/festival-highlights/FestivalHighlights";
 import Partners from "../components/partners/Partners";
 import FivePillars from "../components/home/FivePillars";
 
