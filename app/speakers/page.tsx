@@ -3,7 +3,7 @@ import Hero from "@/components/home/Hero";
 import Stats from "@/components/home/Stats";
 import News from "@/components/home/News";
 import About from "@/components/home/About";
-import FestivalHighlights from "@/components/home/FestivalHighlights";
+import FestivalHighlights from "@/components/festival-highlights/FestivalHighlights";
 import FivePillars from "@/components/home/FivePillars";
 
 import Programs from "@/components/programs/Programs";
@@ -21,10 +21,10 @@ export default function Home() {
       <Stats />
       <News />
       <About />
-      <FestivalHighlights />
       <FivePillars />
       <Programs />
       <Speakers />
+      <FestivalHighlights />
       <Schedule />
       <Partners />
     </main>

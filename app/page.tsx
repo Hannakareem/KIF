@@ -6,9 +6,10 @@ import About from "../components/home/About";
 import Programs from "../components/programs/Programs";
 import Schedule from "../components/schedule/Schedule";
 import Speakers from "../components/speakers/Speakers";
-import FestivalHighlights from "../components/home/FestivalHighlights";
+import FestivalHighlights from "../components/festival-highlights/FestivalHighlights";
 import Partners from "../components/partners/Partners";
 import FivePillars from "../components/home/FivePillars";
+import Testimonials from "../components/testimonials/Testimonials";
 
 export default function Home() {
   return (
@@ -18,11 +19,11 @@ export default function Home() {
       <Stats />
       <News />
       <About />
-      
       <FivePillars />
       <Programs />
       <Speakers />
       <FestivalHighlights />
+      <Testimonials />
       <Schedule />
       <Partners />
     </main>
