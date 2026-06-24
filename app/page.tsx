@@ -10,6 +10,8 @@ import FestivalHighlights from "../components/festival-highlights/FestivalHighli
 import Partners from "../components/partners/Partners";
 import FivePillars from "../components/home/FivePillars";
 import Testimonials from "../components/testimonials/Testimonials";
+import WhyAttend from "@/components/home/WhyAttend";
+import Lanyard from "../Lanyard/Lanyard";
 
 export default function Home() {
   return (
@@ -19,6 +21,7 @@ export default function Home() {
       <Stats />
       <News />
       <About />
+      <WhyAttend />
       <FivePillars />
       <Programs />
       <Speakers />

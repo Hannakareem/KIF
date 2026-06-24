@@ -7,18 +7,17 @@ export default function About() {
       <div className="max-w-7xl mx-auto px-4 md:px-8">
 
         {/* Campus Image */}
-        <div className="relative h-64 md:h-[450px] rounded-xl mb-16 overflow-hidden">
-          <Image
-            src="/images/about/campus.png"
-            alt="Campus Image"
-            fill
-            priority
-            className="object-cover"
-          />
-        </div>
-
+        <div className="relative h-64 md:h-[450px] rounded-xl mb-16 overflow-visible">
+  <Image
+    src="/images/about/campus.png"
+    alt="Campus Image"
+    fill
+    priority
+    className="object-cover rounded-xl"
+  />
+</div>
         {/* About Content */}
-        <div className="flex flex-col lg:flex-row gap-12 md:gap-20 items-start">
+        <div className="relative flex flex-col lg:flex-row gap-12 md:gap-20 items-start">
 
           {/* Vertical ABOUT */}
           <div className="flex justify-center">
@@ -59,17 +58,20 @@ export default function About() {
               opportunities to connect, collaborate, and shape the future.
             </p>
           </div>
+          <div className="hidden lg:block absolute right-0 -top-[65px] z-30">
+  <div className="w-[320px] h-[500px]">
+    <Lanyard
+      frontImage="/images/kif-front.png"
+      backImage="/images/kif-back.png"
+      lanyardImage="/lanyard/kif-lanyard.png"
+      position={[0, 0, 22]}
+      gravity={[0, -40, 0]}
+    />
+  </div>
+</div>
 
-          {/* KIF Pass */}
-          <div className="w-full lg:w-[420px] h-[500px]">
-            <Lanyard
-              frontImage="/images/kif-front.png"
-              backImage="/images/kif-back.png"
-              lanyardImage="/lanyard/kif-lanyard.png"
-              position={[0, 0, 22]}
-              gravity={[0, -40, 0]}
-            />
-          </div>
+        
+          
 
         </div>
 
