@@ -11,7 +11,7 @@ import Partners from "../components/partners/Partners";
 import FivePillars from "../components/home/FivePillars";
 import Testimonials from "../components/testimonials/Testimonials";
 import WhyAttend from "@/components/home/WhyAttend";
-import Lanyard from "../Lanyard/Lanyard";
+import Lanyard from "@/components/Lanyard/Lanyard";
 
 export default function Home() {
   return (
