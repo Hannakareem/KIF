@@ -342,13 +342,16 @@ function Band({
       <mesh ref={band}>
         <meshLineGeometry />
         <meshLineMaterial
-          color="white"
-          depthTest={false}
-          resolution={isMobile ? [1000, 2000] : [1000, 1000]}
-          useMap
-          map={texture}
-          repeat={[-4, 1]}
-          lineWidth={lanyardWidth}
+          args={[
+            {
+              color: 'white',
+              resolution: new THREE.Vector2(isMobile ? 1000 : 1000, isMobile ? 2000 : 1000),
+              useMap: 1,
+              map: texture,
+              repeat: new THREE.Vector2(-4, 1),
+              lineWidth: lanyardWidth
+            }
+          ]}
         />
       </mesh>
     </>

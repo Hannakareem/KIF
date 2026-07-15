@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { animate, scroll, spring } from "motion";
 
 const pillars = [
   {
@@ -45,30 +44,36 @@ export default function FivePillars() {
   const ulRef = useRef<HTMLUListElement>(null);
 
   useEffect(() => {
-    const items = document.querySelectorAll(".pillar-slide");
+    const ul = ulRef.current;
+    const items = document.querySelectorAll<HTMLElement>(".pillar-slide");
+    const section = document.getElementById("pillars-scroll");
 
-    if (!ulRef.current || items.length === 0) return;
+    if (!ul || items.length === 0 || !section) return;
 
-    const controls = animate(
-      ulRef.current,
-      {
-        transform: [
-          "translateX(0)",
-          `translateX(-${(items.length - 1) * 100}vw)`,
-        ],
-      },
-      {
-        easing: spring(),
-      }
-    );
+    const updateTransform = () => {
+      const sectionTop = section.offsetTop;
+      const sectionHeight = section.offsetHeight;
+      const viewportHeight = window.innerHeight;
+      const maxScrollDistance = sectionHeight - viewportHeight;
+      const scrollY = window.scrollY;
+      const start = sectionTop - viewportHeight;
+      const end = sectionTop + maxScrollDistance;
+      const progress = Math.min(
+        1,
+        Math.max(0, (scrollY - start) / Math.max(1, end - start))
+      );
 
-    const section = document.querySelector("#pillars-scroll");
+      ul.style.transform = `translateX(-${progress * (items.length - 1) * 100}vw)`;
+    };
 
-    if (section) {
-      scroll(controls, {
-        target: section,
-      });
-    }
+    updateTransform();
+    window.addEventListener("scroll", updateTransform, { passive: true });
+    window.addEventListener("resize", updateTransform);
+
+    return () => {
+      window.removeEventListener("scroll", updateTransform);
+      window.removeEventListener("resize", updateTransform);
+    };
   }, []);
 
   return (

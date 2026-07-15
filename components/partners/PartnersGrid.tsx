@@ -1,10 +1,6 @@
-import PartnersGrid from "../../components/partners/PartnersGrid";
-import partners from "../../data/partners.json";
+import Partners from "./Partners";
+import type { PartnerLogo } from "../../lib/types";
 
-export default function PartnersPage() {
-  return (
-    <main className="min-h-screen bg-[var(--color-bg)] text-[var(--color-foreground)]">
-      <PartnersGrid logos={partners} />
-    </main>
-  );
+export default function PartnersGrid({ logos }: { logos?: PartnerLogo[] }) {
+  return <Partners logos={logos} />;
 }

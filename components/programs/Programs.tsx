@@ -49,7 +49,7 @@ const programs = [
   { title: "Creative Economy", icon: Sparkles },
 ];
 
-export default function Programs() {
+export default function Programs({ items }: { items?: { title: string; icon?: typeof Rocket }[] }) {
   return (
     <section
       id="programs"
@@ -63,7 +63,7 @@ export default function Programs() {
         />
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 mt-12">
-          {programs.map((program, index) => {
+          {(items ?? programs).map((program, index) => {
             const Icon = program.icon;
 
             return (
@@ -83,7 +83,9 @@ export default function Programs() {
               >
                 <div className="flex flex-col justify-between h-full">
                   <div className="w-12 h-12 flex items-center justify-center">
-                    <Icon className="w-7 h-7 text-white/80 transition-colors duration-300 group-hover:text-white" />
+                    {Icon ? (
+                      <Icon className="w-7 h-7 text-white/80 transition-colors duration-300 group-hover:text-white" />
+                    ) : null}
                   </div>
 
                   <h3 className="text-white font-medium text-lg leading-snug">

@@ -1,13 +1,17 @@
+import type { LucideIcon } from "lucide-react";
+
 export interface Program {
-  id: number;
+  id?: number;
   title: string;
-  desc: string;
+  desc?: string;
+  icon?: LucideIcon;
 }
 
 export interface Speaker {
   id: number;
   name: string;
-  title?: string;
+  title: string;
+  image: string;
 }
 
 export interface Slot {

@@ -3,9 +3,9 @@
 import { useEffect, useRef, useState } from "react";
 import Container from "../layout/Container";
 
-export default function Speakers() {
+export default function Speakers({ speakersData }: { speakersData?: { id: number; name: string; title: string; image: string }[] }) {
   // ---------- REAL SPEAKER LIST (SAFE) ----------
-  const speakers = Array.from({ length: 39 }, (_, i) => {
+  const speakers = speakersData ?? Array.from({ length: 39 }, (_, i) => {
     const id = i + 1;
     return {
       id,
@@ -16,7 +16,14 @@ export default function Speakers() {
   });
 
   // ---------- FILTER OUT MISSING IMAGES ----------
-  const [validSpeakers, setValidSpeakers] = useState([]);
+  type SpeakerItem = {
+    id: number;
+    name: string;
+    title: string;
+    image: string;
+  };
+
+  const [validSpeakers, setValidSpeakers] = useState<SpeakerItem[]>([]);
 
   useEffect(() => {
     const checkImages = async () => {
@@ -32,15 +39,15 @@ export default function Speakers() {
         })
       );
 
-      setValidSpeakers(results.filter(Boolean));
+      setValidSpeakers(results.filter((item): item is SpeakerItem => Boolean(item)));
     };
 
     checkImages();
   }, []);
 
   // ---------- REVEAL HOOK ----------
-  const useReveal = () => {
-    const ref = useRef(null);
+  const useReveal = (): [React.RefObject<HTMLDivElement | null>, boolean] => {
+    const ref = useRef<HTMLDivElement | null>(null);
     const [visible, setVisible] = useState(false);
 
     useEffect(() => {
@@ -60,7 +67,7 @@ export default function Speakers() {
   };
 
   // ---------- CARD ----------
-  function SpeakerCard({ speaker, index }) {
+  function SpeakerCard({ speaker, index }: { speaker: SpeakerItem; index: number }) {
     const [ref, visible] = useReveal();
 
     return (

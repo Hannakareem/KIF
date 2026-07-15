@@ -75,7 +75,7 @@ const CardSwap: React.FC<CardSwapProps> = ({
   const containerRef =
     useRef<HTMLDivElement>(null);
 
-  const intervalRef = useRef<number>();
+  const intervalRef = useRef<number | undefined>(undefined);
 
   const updatePositions = () => {
     order.current.forEach((cardIndex, position) => {
